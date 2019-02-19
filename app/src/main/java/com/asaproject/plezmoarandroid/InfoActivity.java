@@ -4,14 +4,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-public class DetailActivity extends AppCompatActivity {
+public class InfoActivity extends AppCompatActivity {
 
     ImageView mPlace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_info);
 
         mPlace = findViewById(R.id.imageView);
         Bundle mBundle = getIntent().getExtras();

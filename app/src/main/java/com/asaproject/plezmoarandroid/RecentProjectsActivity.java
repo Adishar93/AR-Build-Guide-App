@@ -16,7 +16,7 @@ public class RecentProjectsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_recent_projects);
 
         mRecyclerView = findViewById(R.id.recyclerview);
         GridLayoutManager mGridLayoutManager = new GridLayoutManager(RecentProjectsActivity.this, 2);

@@ -35,7 +35,7 @@ public class RecentProjectAdapter extends RecyclerView.Adapter<PlaceViewHolder> 
         holder.mPlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mIntent = new Intent(mContext, DetailActivity.class);
+                Intent mIntent = new Intent(mContext, InfoActivity.class);
                 mIntent.putExtra("Image", mPlaceList[holder.getAdapterPosition()]);
                 mContext.startActivity(mIntent);
             }
