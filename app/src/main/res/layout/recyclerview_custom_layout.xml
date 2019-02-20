@@ -4,7 +4,18 @@
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"
   android:orientation="vertical">
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="3dp"
+    app:cardCornerRadius="@dimen/cardview_default_radius"
+    app:cardBackgroundColor="@color/cardview_light_background"
+    app:cardUseCompatPadding="true"
 
+    >
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
   <ImageView
     android:id="@+id/ivPlace"
     android:layout_width="match_parent"
@@ -12,4 +23,7 @@
     android:layout_margin="5dp"
     android:scaleType="centerCrop"
     android:src="@drawable/image_1" />
+  </RelativeLayout>
+
+</android.support.v7.widget.CardView>
 </LinearLayout>

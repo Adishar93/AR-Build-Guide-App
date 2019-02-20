@@ -8,9 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-/**
- * Created by abdalla on 1/6/18.
- */
 
 public class RecentProjectAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
 
