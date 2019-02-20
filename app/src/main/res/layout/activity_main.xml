@@ -34,4 +34,26 @@
         android:background="@android:color/background_light"
         android:onClick="openSettings"
         app:srcCompat="@drawable/settingsicon" />
+
+    <ImageButton
+        android:id="@+id/mascot"
+        android:layout_width="148dp"
+        android:layout_height="224dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="95dp"
+        android:onClick="onMascotClick"
+        app:srcCompat="@drawable/mascot" />
+
+    <ImageView
+        android:id="@+id/bubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="59dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/bubble1" />
+
 </RelativeLayout>
