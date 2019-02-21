@@ -32,4 +32,9 @@ public class MainActivity extends AppCompatActivity {
         else
             im.setVisibility(ImageView.INVISIBLE);
     }
+
+    public void openqr(View v)
+    {
+        startActivity(new Intent(this,ScannedBarcodeActivity.class));
+    }
 }

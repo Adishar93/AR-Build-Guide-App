@@ -12,6 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="125dp"
         android:text="Scan QR code"
+        android:onClick="openqr"
         android:visibility="visible" />
 
     <Button
