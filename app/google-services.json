@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "479111708112",
+    "firebase_url": "https://plezmoarapp.firebaseio.com",
+    "project_id": "plezmoarapp",
+    "storage_bucket": "plezmoarapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479111708112:android:f9158188f752d8ed",
+        "android_client_info": {
+          "package_name": "com.asaproject.plezmoarandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479111708112-uhi35fgev2tf44ve6k6bmhjttctjs3vt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.asaproject.plezmoarandroid",
+            "certificate_hash": "64dc52ff05b76e8670e73880f933dc4e79617198"
+          }
+        },
+        {
+          "client_id": "479111708112-leugeqbqid59a4en9ilej8l8k4dk1g5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgs42kwPHkLB57hI2_dR_SJV5WKxBaJos"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479111708112-leugeqbqid59a4en9ilej8l8k4dk1g5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
