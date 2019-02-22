@@ -5,6 +5,7 @@
     <meta-data
         android:name="com.google.android.gms.vision.DEPENDENCIES"
         android:value="barcode" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -14,6 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".UploadProject" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,12 +26,14 @@
         <activity android:name=".SettingsActivity">
             <intent-filter>
                 <action android:name=".SettingsActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".ScannedBarcodeActivity">
             <intent-filter>
                 <action android:name=".ScannedBarcodeActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

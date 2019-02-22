@@ -1,25 +1,41 @@
 package com.asaproject.plezmoarandroid.entities;
 
+import java.util.ArrayList;
+
 public class ModelKit
 {
     String id;
     String name;
     String info;
     String linkMainImg;
-    ModelParts[] parts;
+    String linkArData;
+    ArrayList<ModelParts> parts;
+
 
     public void ModelKit()
     {
 
     }
 
-    public ModelKit(String id, String name, String info, String linkMainImg, ModelParts[] parts) {
+    public ModelKit(String id, String name, String info, String linkMainImg,String linkArData ,ArrayList<ModelParts> parts) {
         this.id = id;
         this.name = name;
         this.info = info;
         this.linkMainImg = linkMainImg;
         this.parts = parts;
+        this.linkArData=linkArData;
     }
+
+    public String getLinkArData() {
+        return linkArData;
+    }
+
+    public void setLinkArData(String linkArData) {
+        this.linkArData = linkArData;
+    }
+
+
+
 
     public String getId() {
         return id;
@@ -53,11 +69,11 @@ public class ModelKit
         this.linkMainImg = linkMainImg;
     }
 
-    public ModelParts[] getParts() {
+    public ArrayList<ModelParts> getParts() {
         return parts;
     }
 
-    public void setParts(ModelParts[] parts) {
+    public void setParts(ArrayList<ModelParts> parts) {
         this.parts = parts;
     }
 }

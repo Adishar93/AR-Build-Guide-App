@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UploadProject">
+
+    <ImageView
+        android:id="@+id/mainImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"
+        android:onClick="openGallery"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_light_normal"
+        ></ImageView>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_below="@+id/mainImage"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Project Title/Name"/>
+
+    <EditText
+        android:id="@+id/info"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Project Info here"/>
+    <Button
+        android:id="@+id/loadArData"
+        android:layout_below="@id/info"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="140dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load AR Data"
+        android:onClick="openFileExplorer"/>
+    <Button
+        android:layout_below="@id/loadArData"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="140dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload"
+        android:onClick="callUploadData"/>
+
+
+
+</RelativeLayout>

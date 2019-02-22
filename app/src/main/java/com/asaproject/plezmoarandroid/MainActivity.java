@@ -37,4 +37,9 @@ public class MainActivity extends AppCompatActivity {
     {
         startActivity(new Intent(this,ScannedBarcodeActivity.class));
     }
+
+    public void openUploadActivity(View v)
+    {
+        startActivity(new Intent(this,UploadProject.class));
+    }
 }

@@ -3,7 +3,7 @@ package com.asaproject.plezmoarandroid.entities;
 public class ModelParts
 {
     String id;
-    String Title;
+    String title;
     String imagelink;
 
     public ModelParts()
@@ -13,7 +13,7 @@ public class ModelParts
 
     public ModelParts(String id, String title, String imagelink) {
         this.id = id;
-        Title = title;
+        this.title = title;
         this.imagelink = imagelink;
     }
 
@@ -26,11 +26,11 @@ public class ModelParts
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getImagelink() {
