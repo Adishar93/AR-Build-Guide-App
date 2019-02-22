@@ -90,27 +90,24 @@ public class UploadProjectDataModel
 
                                     }
                                 });
-
-
-
-
-
-
-            }
-        })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        //Nothing is uploaded only toast is displayed
-                        ;
-                        Toast.makeText(context, "Sorry! Upload IMAGE unsuccessful", Toast.LENGTH_SHORT).show();
-
                     }
                 });
-    }
-}
-    }
-}
+
+                    }
+                })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception exception) {
+                                //Nothing is uploaded only toast is displayed
+                                ;
+                                Toast.makeText(context, "Sorry! Upload IMAGE unsuccessful", Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
+            }
+        }
+
+
 
 
 
