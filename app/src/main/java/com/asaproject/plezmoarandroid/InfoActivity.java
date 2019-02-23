@@ -29,7 +29,7 @@ private ModelKit mi;
 desctv=findViewById(R.id.description);
         mPlace = findViewById(R.id.imageView);
         Bundle mBundle = getIntent().getExtras();
-        mDatabase = FirebaseDatabase.getInstance().getReference("plezmoarapp");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
 
