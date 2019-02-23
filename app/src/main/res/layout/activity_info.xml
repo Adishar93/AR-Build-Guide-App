@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".InfoActivity">
-
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,34 +13,31 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:padding="5dp"
-
-        android:scaleType="centerCrop"
-
-
-        />
+        android:padding="10dp"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/project_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Title"
+        android:padding="10dp"
         android:textSize="24sp" />
 
     <TextView
         android:id="@+id/description_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="Description"
+        android:padding="10dp"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
         android:text="Description is as follows"
+        android:padding="10dp"
         android:textSize="18sp" />
 
 </LinearLayout>
