@@ -24,10 +24,11 @@ import java.util.ArrayList;
 public class RecentProjectsActivity extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
+    RecentProjectAdapter adapter;
     ModelKit mi;
     DatabaseReference arRef;
    // int[] mPlaceList;
-   ArrayList<KeyForModelKit> mPlaceList=new ArrayList<>();
+   ArrayList<ModelKit> mPlaceList=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +38,12 @@ public class RecentProjectsActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recyclerview);
         GridLayoutManager mGridLayoutManager = new GridLayoutManager(RecentProjectsActivity.this, 2);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
-        FirebaseApp.initializeApp(this);
+        //FirebaseApp.initializeApp(this);
 
-      arRef= (DatabaseReference) FirebaseDatabase.getInstance().getReference();
+      arRef= FirebaseDatabase.getInstance().getReference();
+        adapter=new RecentProjectAdapter(mPlaceList,getApplicationContext());
+
+        mRecyclerView.setAdapter(adapter);
 
 
     }
@@ -57,15 +61,15 @@ public class RecentProjectsActivity extends AppCompatActivity {
 
                     ModelKit mi=eventSnapshot.getValue(ModelKit.class);
 
-                    mPlaceList.add(new KeyForModelKit(mi,eventSnapshot.getKey()));
+                    mPlaceList.add(mi);
                         //eventsList.add(new KeyForEvents(ei,eventSnapshot.getKey()));
 
 
+
                 }
+                adapter.notifyDataSetChanged();
 
-                 RecentProjectAdapter adapter=new RecentProjectAdapter(mPlaceList,getApplicationContext());
 
-                mRecyclerView.setAdapter(adapter);
 
 
             }

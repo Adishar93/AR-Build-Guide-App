@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.asaproject.plezmoarandroid.entities.ModelKit;
 import com.asaproject.plezmoarandroid.entities.ModelParts;
@@ -19,10 +20,10 @@ import java.util.ArrayList;
 public class RecentProjectAdapter extends RecyclerView.Adapter<RecentProjectAdapter.PlaceViewHolder> {
 
 
-    private ArrayList<KeyForModelKit> modelKitsList;
+    private ArrayList<ModelKit> modelKitsList;
     private Context context;
 
-    public RecentProjectAdapter(ArrayList<KeyForModelKit> modelKitsList, Context context) {
+    public RecentProjectAdapter(ArrayList<ModelKit> modelKitsList, Context context) {
         this.context = context;
         this.modelKitsList = modelKitsList;
 
@@ -32,16 +33,16 @@ public class RecentProjectAdapter extends RecyclerView.Adapter<RecentProjectAdap
     @Override
     public PlaceViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v= (View) LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.recyclerview_custom_layout,viewGroup);
+                .inflate(R.layout.recyclerview_custom_layout,null);
 //                .inflate(R.layout.recyclerview_custom_layout,false);
         return new PlaceViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PlaceViewHolder placeViewHolder, final int i) {
-        ModelKit mi=modelKitsList.get(i).mi;
+        ModelKit mi=modelKitsList.get(i);
        // placeViewHolder.textTitle.setText(ei.getTitle());
-
+placeViewHolder.recentprojecttitile.setText(mi.getName());
         Glide.with(context).load(mi.getLinkMainImg()).into(placeViewHolder.mPlace);
         //Glide.get(context).load(mi.getLinkMainImg()).transform(new RoundedCornersTransformation(43,0)).into(placeViewHolder.mPlace);
         placeViewHolder.itemView.setOnClickListener(new View.OnClickListener()
@@ -49,7 +50,8 @@ public class RecentProjectAdapter extends RecyclerView.Adapter<RecentProjectAdap
             public void onClick(View v){
 
                 Intent s = new Intent(context,InfoActivity.class);
-                s.putExtra("ModelId",modelKitsList.get(i).key);
+                s.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                s.putExtra("ModelId",modelKitsList.get(i).getId());
                 context.startActivity(s);
             }
         });
@@ -63,11 +65,14 @@ public class RecentProjectAdapter extends RecyclerView.Adapter<RecentProjectAdap
     class PlaceViewHolder extends RecyclerView.ViewHolder {
 
         ImageView mPlace;
+        TextView recentprojecttitile;
 
         public PlaceViewHolder(View itemView) {
             super(itemView);
 
             mPlace = itemView.findViewById(R.id.ivPlace);
+            recentprojecttitile = itemView.findViewById(R.id.tvRecentProjectTitle);
+
         }
     }
 }

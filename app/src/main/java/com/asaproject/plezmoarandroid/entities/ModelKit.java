@@ -12,7 +12,7 @@ public class ModelKit
     ArrayList<ModelParts> parts;
 
 
-    public void ModelKit()
+    public ModelKit()
     {
 
     }
