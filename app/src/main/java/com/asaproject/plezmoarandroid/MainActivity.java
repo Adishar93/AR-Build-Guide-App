@@ -16,16 +16,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ImageButton settings= (ImageButton) findViewById(R.id.settings);
+        ImageButton mascot= (ImageButton) findViewById(R.id.mascot);
     }
 
 
     public void onrecent(View view) {
-        Intent i = new Intent(getBaseContext(),RecentProjectsActivity.class);
+        Intent i = new Intent(this,RecentProjectsActivity.class);
         startActivity(i);
 
-        ImageButton settings= (ImageButton) findViewById(R.id.settings);
-        ImageButton mascot= (ImageButton) findViewById(R.id.mascot);
+
 
     }
 

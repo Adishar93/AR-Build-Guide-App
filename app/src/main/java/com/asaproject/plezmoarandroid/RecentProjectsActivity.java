@@ -1,17 +1,33 @@
 package com.asaproject.plezmoarandroid;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+
+import com.asaproject.plezmoarandroid.entities.ModelKit;
+import com.asaproject.plezmoarandroid.entities.ModelParts;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 
 public class RecentProjectsActivity extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
-    int[] mPlaceList;
+    ModelKit mi;
+    DatabaseReference arRef;
+   // int[] mPlaceList;
+   ArrayList<KeyForModelKit> mPlaceList=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +37,46 @@ public class RecentProjectsActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recyclerview);
         GridLayoutManager mGridLayoutManager = new GridLayoutManager(RecentProjectsActivity.this, 2);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
+        FirebaseApp.initializeApp(this);
 
-        mPlaceList = new int[]{R.drawable.image_1, R.drawable.image_2, R.drawable.image_3,
-                R.drawable.image_4, R.drawable.image_5, R.drawable.image_6, R.drawable.image_7,
-                R.drawable.image_8, R.drawable.image_9, R.drawable.image_10};
+      arRef= (DatabaseReference) FirebaseDatabase.getInstance().getReference();
 
-        RecentProjectAdapter myAdapter = new RecentProjectAdapter(RecentProjectsActivity.this, mPlaceList);
-        mRecyclerView.setAdapter(myAdapter);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        arRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mPlaceList.clear();
+
+                for(DataSnapshot eventSnapshot:dataSnapshot.getChildren())
+                {
+
+                    ModelKit mi=eventSnapshot.getValue(ModelKit.class);
+
+                    mPlaceList.add(new KeyForModelKit(mi,eventSnapshot.getKey()));
+                        //eventsList.add(new KeyForEvents(ei,eventSnapshot.getKey()));
+
+
+                }
+
+                 RecentProjectAdapter adapter=new RecentProjectAdapter(mPlaceList,getApplicationContext());
+
+                mRecyclerView.setAdapter(adapter);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 }
 

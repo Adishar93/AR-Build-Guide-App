@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "479111708112-ov4bno4b5pgo322m35sv8vok86amq6ir.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.asaproject.plezmoarandroid",
+            "certificate_hash": "b80187da7b9574b04e49b860c3eb9a5571da1fe0"
+          }
+        },
+        {
           "client_id": "479111708112-leugeqbqid59a4en9ilej8l8k4dk1g5c.apps.googleusercontent.com",
           "client_type": 3
         }
