@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-
+        System.out.println("Halwa");
         setContentView(R.layout.activity_main);
         ImageButton settings= (ImageButton) findViewById(R.id.settings);
         ImageButton mascot= (ImageButton) findViewById(R.id.mascot);
