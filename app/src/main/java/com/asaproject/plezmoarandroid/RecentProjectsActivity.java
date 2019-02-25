@@ -37,14 +37,14 @@ public class RecentProjectsActivity extends AppCompatActivity {
 
         mRecyclerView = findViewById(R.id.recyclerview);
         GridLayoutManager mGridLayoutManager = new GridLayoutManager(RecentProjectsActivity.this, 2);
+
         mRecyclerView.setLayoutManager(mGridLayoutManager);
         //FirebaseApp.initializeApp(this);
 
-      arRef= FirebaseDatabase.getInstance().getReference();
+        arRef= FirebaseDatabase.getInstance().getReference();
         adapter=new RecentProjectAdapter(mPlaceList,getApplicationContext());
 
         mRecyclerView.setAdapter(adapter);
-
 
     }
 
@@ -64,13 +64,8 @@ public class RecentProjectsActivity extends AppCompatActivity {
                     mPlaceList.add(mi);
                         //eventsList.add(new KeyForEvents(ei,eventSnapshot.getKey()));
 
-
-
                 }
                 adapter.notifyDataSetChanged();
-
-
-
 
             }
 

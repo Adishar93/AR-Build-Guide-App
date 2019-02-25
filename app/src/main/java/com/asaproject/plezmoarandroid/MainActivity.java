@@ -20,13 +20,9 @@ public class MainActivity extends AppCompatActivity {
         ImageButton mascot= (ImageButton) findViewById(R.id.mascot);
     }
 
-
     public void onrecent(View view) {
         Intent i = new Intent(this,RecentProjectsActivity.class);
         startActivity(i);
-
-
-
     }
 
     public void openSettings(View v){
