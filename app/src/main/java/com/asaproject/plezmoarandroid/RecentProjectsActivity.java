@@ -29,6 +29,9 @@ public class RecentProjectsActivity extends AppCompatActivity {
     DatabaseReference arRef;
    // int[] mPlaceList;
    ArrayList<ModelKit> mPlaceList=new ArrayList<>();
+    ArrayList<ModelKit> mPlaceList2=new ArrayList<>();
+    String [] idArray = { "1550845209560","1550845530422","1550845632530"} ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +45,9 @@ public class RecentProjectsActivity extends AppCompatActivity {
         //FirebaseApp.initializeApp(this);
 
         arRef= FirebaseDatabase.getInstance().getReference();
-        adapter=new RecentProjectAdapter(mPlaceList,getApplicationContext());
+        //adapter=new RecentProjectAdapter(mPlaceList,getApplicationContext());
 
+        adapter=new RecentProjectAdapter(mPlaceList2,getApplicationContext());
         mRecyclerView.setAdapter(adapter);
 
     }
@@ -55,14 +59,22 @@ public class RecentProjectsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mPlaceList.clear();
+                mPlaceList2.clear();
 
                 for(DataSnapshot eventSnapshot:dataSnapshot.getChildren())
                 {
+
 
                     ModelKit mi=eventSnapshot.getValue(ModelKit.class);
 
                     mPlaceList.add(mi);
                         //eventsList.add(new KeyForEvents(ei,eventSnapshot.getKey()));
+                    for(int j = 0; j<idArray.length;j++)
+
+                    if(mi.getId() .equals(idArray[j]))
+                    {
+                        mPlaceList2.add(mi);
+                    }
 
                 }
                 adapter.notifyDataSetChanged();
