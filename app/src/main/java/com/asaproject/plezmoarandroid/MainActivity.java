@@ -1,20 +1,21 @@
 package com.asaproject.plezmoarandroid;
 
 import android.content.Intent;
-import android.content.Intent;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         setContentView(R.layout.activity_main);
         ImageButton settings= (ImageButton) findViewById(R.id.settings);
         ImageButton mascot= (ImageButton) findViewById(R.id.mascot);
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openqr(View v)
     {
-        startActivity(new Intent(this,ScannedBarcodeActivity.class));
+        startActivity(new Intent(this, QRScanActivity.class));
     }
 
     public void openUploadActivity(View v)

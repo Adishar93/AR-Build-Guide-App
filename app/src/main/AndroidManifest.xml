@@ -32,7 +32,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ScannedBarcodeActivity">
+        <activity android:name=".QRScanActivity">
             <intent-filter>
                 <action android:name=".ScannedBarcodeActivity" />
 

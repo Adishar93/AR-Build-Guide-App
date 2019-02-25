@@ -3,15 +3,12 @@ package com.asaproject.plezmoarandroid;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +19,7 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.IOException;
 
-public class ScannedBarcodeActivity extends AppCompatActivity {
+public class QRScanActivity extends AppCompatActivity {
 
     SurfaceView surfaceView;
     TextView txtBarcodeValue;
@@ -31,7 +28,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
     private static final int REQUEST_CAMERA_PERMISSION = 201;
 
     String intentData = "";
-    boolean isEmail = false;
+    boolean isData = false;
 
 
     @Override
@@ -68,10 +65,10 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
                 try {
-                    if (ActivityCompat.checkSelfPermission(ScannedBarcodeActivity.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.checkSelfPermission(QRScanActivity.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                         cameraSource.start(surfaceView.getHolder());
                     } else {
-                        ActivityCompat.requestPermissions(ScannedBarcodeActivity.this, new
+                        ActivityCompat.requestPermissions(QRScanActivity.this, new
                                 String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
                     }
 
@@ -114,13 +111,17 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
                                 txtBarcodeValue.removeCallbacks(null);
                                 intentData = barcodes.valueAt(0).email.address;
                                 txtBarcodeValue.setText(intentData);
-                                isEmail = true;
+                                isData = true;
 
                             } else {
-                                isEmail = false;
+                                isData = false;
 
                                 intentData = barcodes.valueAt(0).displayValue;
                                 txtBarcodeValue.setText(intentData);
+                                Intent s = new Intent(getApplicationContext(),InfoActivity.class);
+                                s.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                s.putExtra("ModelId",intentData);
+                                startActivity(s);
 
                             }
                         }
