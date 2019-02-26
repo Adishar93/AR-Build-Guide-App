@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
@@ -13,11 +15,19 @@ import android.view.SurfaceView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.asaproject.plezmoarandroid.entities.ModelKit;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
 import java.io.IOException;
 
 public class QRScanActivity extends AppCompatActivity {
@@ -28,6 +38,9 @@ public class QRScanActivity extends AppCompatActivity {
     private CameraSource cameraSource;
     private static final int REQUEST_CAMERA_PERMISSION = 201;
     SharedPreferences settings;
+
+    StorageReference storageRef ;
+    StorageReference islandRef ;
     boolean activityLaunched=false;
 
     String intentData = "";
@@ -126,6 +139,7 @@ public class QRScanActivity extends AppCompatActivity {
                                 //Save id for recent projects
                                 if(!activityLaunched) {
                                     isData = false;
+                                    final int[] x = {0};
                                     SharedPreferences.Editor editor = settings.edit();
                                     Integer index = settings.getAll().size();
                                     editor.putString(index.toString(), intentData);
@@ -135,8 +149,47 @@ public class QRScanActivity extends AppCompatActivity {
                                     s.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     s.putExtra("ModelId", intentData);
 
+                                    ///////////mera code
+                                    final FirebaseStorage storage = FirebaseStorage.getInstance();
+
+
+                                    storageRef = storage.getReference(intentData);
+                                    islandRef = storageRef.child("ARData");
+                                    File rootpath = new File(Environment.getExternalStorageDirectory(), "ARapp");
+                                    if (!rootpath.exists()) {
+                                        rootpath.mkdirs();
+                                    }
+
+
+                                     File localFile = new File(rootpath, "modelproject.fbh" );
+                                    if(localFile.exists())
+                                    {
+
+                                     localFile = new File(rootpath,"modelproject.fbh" + x[0]) ;
+
+                                    }
+
+                                    islandRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                        @Override
+                                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                            x[0]++;
+
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception exception) {
+                                            System.out.println("Halwa ho gya ye to!");
+                                        }
+                                    });
+
+
+
+
+///////////////////////end of mera code
                                     startActivity(s);
                                     activityLaunched=true;
+
                                 }
 
 

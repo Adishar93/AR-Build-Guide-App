@@ -109,43 +109,19 @@ public class RecentProjectsActivity extends AppCompatActivity {
                 mPlaceList.clear();
                 mPlaceList2.clear();
 
-                for(DataSnapshot eventSnapshot:dataSnapshot.getChildren())
-                {
+                for(DataSnapshot eventSnapshot:dataSnapshot.getChildren()) {
 
 
-                    ModelKit mi=eventSnapshot.getValue(ModelKit.class);
+                    ModelKit mi = eventSnapshot.getValue(ModelKit.class);
 
                     mPlaceList.add(mi);
+
                         //eventsList.add(new KeyForEvents(ei,eventSnapshot.getKey()));
-                    for(int j = 0; j<idArray.size();j++)
+                    for(int j = 0; j<idArray.size();j++) {
 
-                    for(int j = 0; j<idArray.length;j++) {
-                        if (mi.getId().equals(idArray[j])) {
+
+                        if (mi.getId().equals(idArray.toArray()[j])) {
                             mPlaceList2.add(mi);
-                            storageRef = storage.getReference(mi.getId());
-                            islandRef = storageRef.child("ARData");
-                            File rootpath = new File(Environment.getExternalStorageDirectory(),"ARapp");
-                            if(!rootpath.exists())
-                            {
-                                rootpath.mkdirs();
-                            }
-
-
-                               final  File localFile = new File(rootpath,"modelproject.fbh"+ x[0]);
-
-                            islandRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                                @Override
-                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                                    x[0]++;
-
-
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                    System.out.println("Halwa ho gya ye to!");
-                                }
-                            });
 
 //                            if (isConnectingToInternet())
 //                                new DownloadTask(RecentProjectsActivity.this,mi.getLinkArData());
@@ -155,13 +131,10 @@ public class RecentProjectsActivity extends AppCompatActivity {
 
 
                         }
-                    if(mi.getId() .equals(idArray.toArray()[j]))
-                    {
-                        mPlaceList2.add(mi);
+
+
+
                     }
-
-
-
 
 
 
