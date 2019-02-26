@@ -2,6 +2,7 @@ package com.asaproject.plezmoarandroid;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -26,6 +27,8 @@ public class QRScanActivity extends AppCompatActivity {
     private BarcodeDetector barcodeDetector;
     private CameraSource cameraSource;
     private static final int REQUEST_CAMERA_PERMISSION = 201;
+    SharedPreferences settings;
+    boolean activityLaunched=false;
 
     String intentData = "";
     boolean isData = false;
@@ -35,6 +38,7 @@ public class QRScanActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_barcode);
+        settings = getSharedPreferences("ScannedProjects", MODE_PRIVATE);
 
         initViews();
     }
@@ -114,14 +118,28 @@ public class QRScanActivity extends AppCompatActivity {
                                 isData = true;
 
                             } else {
-                                isData = false;
+
 
                                 intentData = barcodes.valueAt(0).displayValue;
                                 txtBarcodeValue.setText(intentData);
-                                Intent s = new Intent(getApplicationContext(),InfoActivity.class);
-                                s.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                s.putExtra("ModelId",intentData);
-                                startActivity(s);
+
+                                //Save id for recent projects
+                                if(!activityLaunched) {
+                                    isData = false;
+                                    SharedPreferences.Editor editor = settings.edit();
+                                    Integer index = settings.getAll().size();
+                                    editor.putString(index.toString(), intentData);
+                                    editor.apply();
+                                    //Launch the info activity for that particular id project
+                                    Intent s = new Intent(getApplicationContext(), InfoActivity.class);
+                                    s.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    s.putExtra("ModelId", intentData);
+
+                                    startActivity(s);
+                                    activityLaunched=true;
+                                }
+
+
 
                             }
                         }

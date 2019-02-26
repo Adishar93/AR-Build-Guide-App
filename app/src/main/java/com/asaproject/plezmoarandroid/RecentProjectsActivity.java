@@ -1,5 +1,6 @@
 package com.asaproject.plezmoarandroid;
 
+import android.content.SharedPreferences;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
@@ -38,6 +39,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class RecentProjectsActivity extends AppCompatActivity {
@@ -56,13 +59,23 @@ public class RecentProjectsActivity extends AppCompatActivity {
    // int[] mPlaceList;
    ArrayList<ModelKit> mPlaceList=new ArrayList<>();
     ArrayList<ModelKit> mPlaceList2=new ArrayList<>();
-    String [] idArray = { "1550845209560","1550845530422","1550845632530"} ;
+    Set<String> idArray ;
+    SharedPreferences settings;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recent_projects);
+
+        idArray= new HashSet<String>();
+        //Loading id of scanned projects for displaying in recent projects
+        settings=getSharedPreferences("ScannedProjects",MODE_PRIVATE);
+        for(Integer i=0;i<settings.getAll().size();i++)
+        {
+            idArray.add(settings.getString(i.toString(),"000000000"));
+        }
+
 
         mRecyclerView = findViewById(R.id.recyclerview);
         GridLayoutManager mGridLayoutManager = new GridLayoutManager(RecentProjectsActivity.this, 2);
@@ -75,6 +88,7 @@ public class RecentProjectsActivity extends AppCompatActivity {
 
         adapter=new RecentProjectAdapter(mPlaceList2,getApplicationContext());
         mRecyclerView.setAdapter(adapter);
+
 
     }
 
@@ -102,6 +116,8 @@ public class RecentProjectsActivity extends AppCompatActivity {
                     ModelKit mi=eventSnapshot.getValue(ModelKit.class);
 
                     mPlaceList.add(mi);
+                        //eventsList.add(new KeyForEvents(ei,eventSnapshot.getKey()));
+                    for(int j = 0; j<idArray.size();j++)
 
                     for(int j = 0; j<idArray.length;j++) {
                         if (mi.getId().equals(idArray[j])) {
@@ -139,6 +155,9 @@ public class RecentProjectsActivity extends AppCompatActivity {
 
 
                         }
+                    if(mi.getId() .equals(idArray.toArray()[j]))
+                    {
+                        mPlaceList2.add(mi);
                     }
 
 
