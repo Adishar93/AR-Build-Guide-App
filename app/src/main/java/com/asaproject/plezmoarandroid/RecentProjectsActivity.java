@@ -11,7 +11,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.widget.Toast;
 
+
+import com.asaproject.plezmoarandroid.Model.DownloadTask;
 import com.asaproject.plezmoarandroid.entities.ModelKit;
 import com.asaproject.plezmoarandroid.entities.ModelParts;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -75,13 +83,11 @@ public class RecentProjectsActivity extends AppCompatActivity {
 
         super.onStart();
         final FirebaseStorage storage = FirebaseStorage.getInstance();
+        final int[] x = {0};
 
 
 
-        final String filename = "myfile";
-        final String[] fileUrl = {" "};
-        //final String[] fileContents = new String[1];
-        FileOutputStream outputStream;
+
 
         arRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -96,30 +102,27 @@ public class RecentProjectsActivity extends AppCompatActivity {
                     ModelKit mi=eventSnapshot.getValue(ModelKit.class);
 
                     mPlaceList.add(mi);
-                        //eventsList.add(new KeyForEvents(ei,eventSnapshot.getKey()));
+
                     for(int j = 0; j<idArray.length;j++) {
                         if (mi.getId().equals(idArray[j])) {
                             mPlaceList2.add(mi);
-                            storageRef = storage.getReference("1550845530422");
+                            storageRef = storage.getReference(mi.getId());
                             islandRef = storageRef.child("ARData");
-                            File rootpath = new File(Environment.getRootDirectory(),"ARapp");
+                            File rootpath = new File(Environment.getExternalStorageDirectory(),"ARapp");
                             if(!rootpath.exists())
                             {
                                 rootpath.mkdirs();
                             }
 
-                            //File localFile = null;
-                            //try {
-                               final  File localFile = new File(rootpath,"image.fbh");
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                                System.out.println("file hi nahi ban rahi!");
-//                            }
+
+                               final  File localFile = new File(rootpath,"modelproject.fbh"+ x[0]);
 
                             islandRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                                 @Override
                                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                                    // Local temp file has been created
+                                    x[0]++;
+
+
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -127,6 +130,14 @@ public class RecentProjectsActivity extends AppCompatActivity {
                                     System.out.println("Halwa ho gya ye to!");
                                 }
                             });
+
+//                            if (isConnectingToInternet())
+//                                new DownloadTask(RecentProjectsActivity.this,mi.getLinkArData());
+//                            else
+//                                Toast.makeText(RecentProjectsActivity.this, "Oops!! There is no internet connection. Please enable internet connection and try again.", Toast.LENGTH_SHORT).show();
+//                            break;
+
+
                         }
                     }
 
@@ -150,6 +161,19 @@ public class RecentProjectsActivity extends AppCompatActivity {
 
 
     }
+
+
+    //Check if internet is present or not
+    private boolean isConnectingToInternet() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager
+                .getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected())
+            return true;
+        else
+            return false;
+    }
+
 }
 
 
