@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -169,7 +170,7 @@ public class QRScanActivity extends AppCompatActivity {
                                     if(localFile.exists())
                                     {
 
-                                     localFile = new File(rootpath,"modelproject" + x[0] +intentData.toString() + ".fbh") ;
+                                        System.out.println("Halwa khaya");
 
                                     }
 
