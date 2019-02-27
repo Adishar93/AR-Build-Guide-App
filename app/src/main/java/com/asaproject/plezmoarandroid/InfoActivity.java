@@ -1,5 +1,6 @@
 package com.asaproject.plezmoarandroid;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -69,4 +70,13 @@ project_titltle_tv.setText(model_titleset);
         }
     });
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//            finish();
+//            Intent intent = new Intent(InfoActivity.this, MainActivity.class);
+//            startActivity(intent);
+//
+//    }
 }

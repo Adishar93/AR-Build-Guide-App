@@ -155,17 +155,21 @@ public class QRScanActivity extends AppCompatActivity {
 
                                     storageRef = storage.getReference(intentData);
                                     islandRef = storageRef.child("ARData");
-                                    File rootpath = new File(Environment.getExternalStorageDirectory(), "ARapp");
+                                   // "Model" +intentData.toString()
+                                    File rootpath = new File(Environment.getExternalStorageDirectory(), "Android/data/com.asaproject.PlezmoAndroidApp");
                                     if (!rootpath.exists()) {
                                         rootpath.mkdirs();
                                     }
+                                    File subroot = new File(Environment.getExternalStorageDirectory(),"Android/data/com.asaproject.PlezmoAndroidApp/resources/Model" +intentData.toString());
+                                    if (!subroot.exists()) {
+                                        subroot.mkdirs();
+                                    }
 
-
-                                     File localFile = new File(rootpath, "modelproject.fbh" );
+                                     File localFile = new File(subroot, "modelproject" +intentData.toString() + ".fbh" );
                                     if(localFile.exists())
                                     {
 
-                                     localFile = new File(rootpath,"modelproject.fbh" + x[0]) ;
+                                     localFile = new File(rootpath,"modelproject" + x[0] +intentData.toString() + ".fbh") ;
 
                                     }
 
@@ -188,6 +192,7 @@ public class QRScanActivity extends AppCompatActivity {
 
 ///////////////////////end of mera code
                                     startActivity(s);
+                                    finish();
                                     activityLaunched=true;
 
                                 }

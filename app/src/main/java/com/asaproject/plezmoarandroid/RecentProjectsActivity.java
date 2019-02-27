@@ -61,6 +61,9 @@ public class RecentProjectsActivity extends AppCompatActivity {
     ArrayList<ModelKit> mPlaceList2=new ArrayList<>();
     Set<String> idArray ;
     SharedPreferences settings;
+//1550845209560
+//             1550845530422
+//             1550845632530
 
 
     @Override
