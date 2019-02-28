@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:padding="10dp"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+         />
 
     <TextView
         android:id="@+id/project_title"
@@ -39,5 +40,17 @@
         android:text="Description is as follows"
         android:padding="10dp"
         android:textSize="18sp" />
+
+    <Button
+
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/ic_rp_playbutton"
+
+        />
+
+
 
 </LinearLayout>

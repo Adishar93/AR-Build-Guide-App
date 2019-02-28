@@ -2,56 +2,64 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/ui_bg"
+    >
 
     <Button
         android:id="@+id/qrcode"
-        android:layout_width="153dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="125dp"
         android:text="Scan QR code"
         android:onClick="openqr"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:background="@drawable/ic_mm_titlebox"/>
 
     <Button
         android:id="@+id/recent"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="52dp"
         android:text="Recent Projects"
-        android:onClick="onrecent"/>
+        android:onClick="onrecent"
+        android:background="@drawable/ic_mm_titlebox"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload Event"
-        android:onClick="openUploadActivity"/>
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text=""
+        android:background="@drawable/ui_bg"
+        android:onClick="openUploadActivity"
 
-    <ImageButton
+        />
+
+    <ImageView
         android:id="@+id/settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="18dp"
         android:layout_marginTop="18dp"
-        android:background="@android:color/background_light"
+        android:background="@android:color/transparent"
         android:onClick="openSettings"
-        app:srcCompat="@drawable/settingsicon" />
+        app:srcCompat="@drawable/ic_mm_settings_icon" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/mascot"
-        android:layout_width="148dp"
-        android:layout_height="224dp"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="95dp"
         android:onClick="onMascotClick"
-        app:srcCompat="@drawable/mascot" />
+
+        app:srcCompat="@drawable/digital_assistan" />
 
     <ImageView
         android:id="@+id/bubble"
@@ -62,6 +70,6 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="59dp"
         android:visibility="invisible"
-        app:srcCompat="@drawable/bubble1" />
+        app:srcCompat="@drawable/mm_tapme" />
 
 </RelativeLayout>
