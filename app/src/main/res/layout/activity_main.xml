@@ -8,19 +8,18 @@
 
     <Button
         android:id="@+id/qrcode"
-        android:layout_width="150dp"
+        android:layout_width="153dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="125dp"
         android:text="Scan QR code"
         android:onClick="openqr"
-        android:visibility="visible"
-        android:background="@drawable/ic_mm_titlebox"/>
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/recent"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -50,16 +49,16 @@
         android:onClick="openSettings"
         app:srcCompat="@drawable/ic_mm_settings_icon" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/mascot"
-        android:layout_width="300dp"
-        android:layout_height="400dp"
+        android:layout_width="148dp"
+        android:layout_height="224dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="95dp"
         android:onClick="onMascotClick"
+        app:srcCompat="@drawable/mascot" />
 
-        app:srcCompat="@drawable/digital_assistan" />
 
     <ImageView
         android:id="@+id/bubble"

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 public class SettingsActivity extends AppCompatActivity {
+    String[] address={"info@plezmo.com"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,5 +20,19 @@ public class SettingsActivity extends AppCompatActivity {
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);
+    }
+
+    public void onSupportClicked(View v) {
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setType("text/plain");
+        i.setPackage("com.google.android.gm");
+        i.putExtra(Intent.EXTRA_EMAIL, address);
+        startActivity(i);
+    }
+
+    public void onFeedbackClicked(View v) {
+        Intent i = new Intent(this,Rating.class);
+        startActivity(i);
+
     }
 }

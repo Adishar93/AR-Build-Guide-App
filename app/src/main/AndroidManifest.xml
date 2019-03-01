@@ -24,21 +24,24 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".SettingsActivity">
             <intent-filter>
                 <action android:name=".SettingsActivity" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".QRScanActivity">
             <intent-filter>
                 <action android:name=".ScannedBarcodeActivity" />
-
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Rating">
+            <intent-filter>
+                <action android:name=".Rating" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
