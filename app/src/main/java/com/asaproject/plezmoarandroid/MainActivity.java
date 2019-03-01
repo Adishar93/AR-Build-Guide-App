@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openqr(View v)
     {
+
         startActivity(new Intent(this, QRScanActivity.class));
     }
 

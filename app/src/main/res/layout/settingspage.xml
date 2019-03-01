@@ -20,6 +20,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/about"
+        android:onClick="onSupportClicked"
         android:text="Support" />
 
     <Button
@@ -29,6 +30,7 @@
         android:layout_marginTop="20dp"
         android:layout_below="@+id/support"
         android:layout_centerHorizontal="true"
+        android:onClick="onFeedbackClicked"
         android:text="Feedback" />
 
 </RelativeLayout>
