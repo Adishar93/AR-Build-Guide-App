@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Halwa");
         setContentView(R.layout.activity_main);
         checkPermissionDialog();
-        ImageButton settings= (ImageButton) findViewById(R.id.settings);
-        ImageButton mascot= (ImageButton) findViewById(R.id.mascot);
+        ImageView settings= (ImageView) findViewById(R.id.settings);
+        ImageView mascot= (ImageView) findViewById(R.id.mascot);
     }
 
     public void onrecent(View view) {

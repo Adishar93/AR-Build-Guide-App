@@ -1,56 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".InfoActivity">
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    tools:context=".InfoActivity"
+    android:background="@drawable/ui_bg2">
+>
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:padding="10dp"
-        android:scaleType="centerCrop"
-         />
+        android:scaleType="centerCrop" />
+
+    <Button
+        android:id="@+id/playButton"
+
+        android:layout_width="69dp"
+        android:layout_height="58dp"
+        android:layout_marginLeft="270dp"
+        android:background="@drawable/ic_rp_playbutton"
+        android:layout_below="@+id/imageView"/>
 
     <TextView
         android:id="@+id/project_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Title"
+        android:layout_below="@+id/imageView"
+        android:layout_marginStart="5dp"
+
+        android:layout_toLeftOf="@+id/playButton"
         android:padding="10dp"
+        android:text="HELLO"
         android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/TopHorizontalSeparator"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_horizontalseperator"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/playButton"
+></ImageView>
 
     <TextView
         android:id="@+id/description_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description"
         android:padding="10dp"
-        android:textSize="18sp" />
+        android:text="Description"
+        android:textSize="18sp"
+        android:layout_below="@id/TopHorizontalSeparator"/>
+
 
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description is as follows"
+        android:text=""
         android:padding="10dp"
-        android:textSize="18sp" />
-
-    <Button
-
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="90dp"
-        android:background="@drawable/ic_rp_playbutton"
-
-        />
+        android:textSize="18sp"
+        android:layout_below="@id/description_title"/>
 
 
+    <ImageView
+        android:id="@+id/BottomHorizontalSeparator"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_horizontalseperator"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/description"/>
 
-</LinearLayout>
+
+
+
+
+</RelativeLayout>
