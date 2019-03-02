@@ -10,7 +10,10 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.Explode;
+import android.transition.Fade;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -25,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        System.out.println("Halwa");
         setContentView(R.layout.activity_main);
         checkPermissionDialog();
         ImageView settings= (ImageView) findViewById(R.id.settings);
@@ -101,8 +103,6 @@ public class MainActivity extends AppCompatActivity {
         else {
             return true;
         }
-
-
     }
 
 }

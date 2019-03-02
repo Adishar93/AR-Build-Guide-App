@@ -9,33 +9,38 @@
     <SurfaceView
         android:id="@+id/surfaceView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:layout_alignParentLeft="true"
+        android:layout_height="765dp"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true" />
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:id="@+id/txtBarcodeValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:text="No Barcode Detected"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/qrcode"
+        android:visibility="invisible"
+        />
+
     <ImageView
-        android:id="@+id/plezmoman"
-        android:layout_width="162dp"
-        android:layout_height="216dp"
+        android:id="@+id/mascotQr"
+        android:layout_width="124dp"
+        android:layout_height="261dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
-        android:visibility="visible"
-        tools:srcCompat="@drawable/digital_assistan" />
-
-
-
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:onClick="onMascotClickQr"
+        app:srcCompat="@drawable/digital_assistan" />
 
 </RelativeLayout>
