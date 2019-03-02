@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".RecentProjectsActivity"
     android:background="@drawable/ui_bg2">
+    <TextView
+        android:id="@+id/settings_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:fontFamily="@font/orange_juice2"
+        android:text="RECENT PROJECTS"
+        android:layout_marginTop="5dp"
+        android:textSize="36sp" />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_backbutton" />
+    <ImageView
+        android:id="@+id/TopHorizontalSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:scaleType="fitXY"
+        android:layout_below="@id/settings_title"
+        android:src="@drawable/ic_horizontalseperator" />
+
+
 
     <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/TopHorizontalSeparator"
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical" />
-</LinearLayout>
+        android:layout_marginTop="20dp"
+        android:scrollbars="vertical"
+        />
+</RelativeLayout>

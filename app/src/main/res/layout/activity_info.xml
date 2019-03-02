@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +12,23 @@
     android:orientation="vertical"
     tools:context=".InfoActivity"
     android:background="@drawable/ui_bg2">
->
+
+    <TextView
+        android:id="@+id/info_title"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:fontFamily="@font/orange_juice2"
+        android:text="INFO"
+        android:layout_marginTop="5dp"
+        android:textSize="36sp" />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_backbutton" />
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -15,10 +36,8 @@
         android:layout_height="200dp"
         android:padding="10dp"
         android:scaleType="centerCrop" />
-
-    <Button
+   <Button
         android:id="@+id/playButton"
-
         android:layout_width="69dp"
         android:layout_height="58dp"
         android:layout_marginLeft="270dp"
@@ -28,13 +47,11 @@
     <TextView
         android:id="@+id/project_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/imageView"
-        android:layout_marginStart="5dp"
-
-        android:layout_toLeftOf="@+id/playButton"
+        android:layout_marginStart="50dp"
         android:padding="10dp"
-        android:text="HELLO"
+        android:text="HelFire"
         android:textSize="24sp" />
 
     <ImageView
@@ -47,7 +64,7 @@
         android:layout_below="@+id/playButton"
 ></ImageView>
 
-    <TextView
+<TextView
         android:id="@+id/description_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,19 +82,26 @@
         android:padding="10dp"
         android:textSize="18sp"
         android:layout_below="@id/description_title"/>
-
-
     <ImageView
-        android:id="@+id/BottomHorizontalSeparator"
+    android:id="@+id/BottomHorizontalSeparator"
+    android:layout_marginTop="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="25dp"
+    android:src="@drawable/ic_horizontalseperator"
+    android:scaleType="fitXY"
+    android:layout_below="@+id/description"
+    />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/BottomHorizontalSeparator"
+        android:id="@+id/recyclerview2"
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:src="@drawable/ic_horizontalseperator"
         android:scaleType="fitXY"
-        android:layout_below="@+id/description"/>
 
-
-
-
+        />
 
 </RelativeLayout>
+</ScrollView>

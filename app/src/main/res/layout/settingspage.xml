@@ -4,13 +4,29 @@
     android:layout_height="match_parent"
     android:background="@drawable/ui_bg2">
 
+    <TextView
+        android:id="@+id/settings_title"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:fontFamily="@font/orange_juice2"
+        android:text="SETTINGS"
+        android:layout_marginTop="5dp"
+        android:textSize="36sp" />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_backbutton" />
+
 
     <ImageView
-        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:src="@drawable/ic_horizontalseperator"
-        android:scaleType="fitXY"/>
+        android:layout_marginTop="50dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_horizontalseperator" />
 
     <Button
         android:id="@+id/about"
@@ -18,35 +34,35 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/button_border_dashed_bg"
         android:onClick="onAboutClicked"
         android:text="About Us"
-        android:background="@drawable/ic_mm_titlebox"/>
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/support"
         android:layout_width="124dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:layout_below="@+id/about"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_border_dashed_bg"
         android:onClick="onSupportClicked"
-        android:text="Support" />
-        android:layout_marginBottom="209dp"
-        android:background="@drawable/ic_mm_titlebox"
         android:text="Support"
-        />
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/feedback"
         android:layout_width="124dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_below="@+id/support"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="128dp"
-        android:text="Feedback"
-        android:background="@drawable/ic_mm_titlebox"/>
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_border_dashed_bg"
         android:onClick="onFeedbackClicked"
-        android:text="Feedback" />
+
+        android:text="Feedback"
+        android:textSize="18sp" />
 
 </RelativeLayout>
