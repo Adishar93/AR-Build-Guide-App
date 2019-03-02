@@ -28,10 +28,12 @@
 
     <ImageView
         android:id="@+id/plezmoman"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="162dp"
+        android:layout_height="216dp"
         android:layout_alignParentBottom="true"
-        tools:srcCompat="@drawable/test" />
+        android:layout_marginBottom="0dp"
+        android:visibility="visible"
+        tools:srcCompat="@drawable/digital_assistan" />
 
 
 

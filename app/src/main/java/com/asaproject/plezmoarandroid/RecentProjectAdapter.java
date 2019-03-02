@@ -2,6 +2,7 @@ package com.asaproject.plezmoarandroid;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -72,6 +73,9 @@ placeViewHolder.recentprojecttitile.setText(mi.getName());
 
             mPlace = itemView.findViewById(R.id.ivPlace);
             recentprojecttitile = itemView.findViewById(R.id.tvRecentProjectTitle);
+//            Typeface typeface = Typeface.createFromAsset(getAssets(),"font/orange_juice2.ttf");
+//            Typeface typeface2 = Typeface.createFromAsset(getAssets(),"font/roboto_regular.ttf");
+//            recentprojecttitile.setTypeface(typeface2);
 
         }
     }

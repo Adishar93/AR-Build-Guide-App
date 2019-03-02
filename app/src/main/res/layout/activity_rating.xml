@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
+    android:background="@drawable/ui_bg2"
+    >
 
     <TextView
         android:id="@+id/text"
@@ -15,6 +16,13 @@
         android:textColor="#000"
         android:textSize="25dp"
         android:textStyle="bold" />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_backbutton"
+        android:onClick="onBackClick"/>
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -26,14 +34,15 @@
         android:layout_marginTop="50dp" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/feedback_submit_button"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ratingBar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:textColor="#fff"
-        android:text="submit" />
+        android:background="@drawable/button_border_dashed_bg"
+        android:text="submit"
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/rating"

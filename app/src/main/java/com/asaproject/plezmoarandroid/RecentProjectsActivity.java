@@ -169,6 +169,9 @@ public class RecentProjectsActivity extends AppCompatActivity {
             return false;
     }
 
+    public void onBackClick(View view) {
+        super.onBackPressed();
+    }
 }
 
 

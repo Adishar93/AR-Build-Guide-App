@@ -1,6 +1,7 @@
 package com.asaproject.plezmoarandroid;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ public class InfoActivity extends AppCompatActivity {
 
     ImageView mPlace;
 RecyclerView mRecyclerView;
-    TextView desctv;
+    TextView desctv,desc_title_tv;
     TextView project_titltle_tv;
 DatabaseReference mDatabase;
 String model_key;
@@ -41,6 +42,13 @@ private ModelKit mi;
 desctv=findViewById(R.id.description);
 project_titltle_tv= findViewById(R.id.project_title);
 mPlace = findViewById(R.id.imageView);
+desc_title_tv= findViewById(R.id.description_title);
+
+        Typeface typeface = Typeface.createFromAsset(getAssets(),"font/orange_juice2.ttf");
+        Typeface typeface2 = Typeface.createFromAsset(getAssets(),"font/roboto_regular.ttf");
+        desctv.setTypeface(typeface2);
+        project_titltle_tv.setTypeface(typeface2);
+        desc_title_tv.setTypeface(typeface2);
 ///////////////////////////////Parts/////////////////////////////////////////////////////
 
 //        mRecyclerView = findViewById(R.id.recyclerview);

@@ -28,7 +28,7 @@
           android:gravity="center"
           android:layout_marginTop="150dp"
           android:text="title"
-          android:textSize="24sp">
+          android:textSize="20sp">
       </TextView>
   <ImageView
     android:id="@+id/ivPlace"

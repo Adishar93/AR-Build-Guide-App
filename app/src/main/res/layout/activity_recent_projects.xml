@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".RecentProjectsActivity"
-    android:background="@drawable/ui_bg2">
+    android:background="#FFFFFF">
     <TextView
         android:id="@+id/settings_title"
         android:layout_width="wrap_content"
@@ -20,6 +20,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="10dp"
         android:scaleType="fitXY"
+        android:onClick="onBackClick"
         android:src="@drawable/ic_backbutton" />
     <ImageView
         android:id="@+id/TopHorizontalSeparator"

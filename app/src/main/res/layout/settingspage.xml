@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ui_bg2">
@@ -13,12 +14,15 @@
         android:text="SETTINGS"
         android:layout_marginTop="5dp"
         android:textSize="36sp" />
+
     <ImageView
         android:layout_width="50dp"
         android:layout_height="35dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_backbutton" />
+        android:src="@drawable/ic_backbutton"
+        android:tint="@color/colorAccent"
+        android:onClick="onBackClicktwo"/>
 
 
     <ImageView
@@ -26,43 +30,44 @@
         android:layout_height="25dp"
         android:layout_marginTop="50dp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_horizontalseperator" />
+        android:src="@drawable/ic_horizontalseperator"
+        android:tint="@color/colorAccent" />
 
     <Button
         android:id="@+id/about"
-        android:layout_width="124dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="250dp"
         android:background="@drawable/button_border_dashed_bg"
         android:onClick="onAboutClicked"
         android:text="About Us"
-        android:textSize="18sp" />
+        android:textSize="22sp" />
 
     <Button
         android:id="@+id/support"
-        android:layout_width="124dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/about"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/button_border_dashed_bg"
         android:onClick="onSupportClicked"
         android:text="Support"
-        android:textSize="18sp" />
+        android:textSize="22sp" />
 
     <Button
         android:id="@+id/feedback"
-        android:layout_width="124dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/support"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/button_border_dashed_bg"
         android:onClick="onFeedbackClicked"
 
         android:text="Feedback"
-        android:textSize="18sp" />
+        android:textSize="22sp" />
 
 </RelativeLayout>

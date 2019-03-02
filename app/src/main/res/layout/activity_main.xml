@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="125dp"
+        android:layout_marginBottom="160dp"
         android:background="@drawable/button_border_dashed_bg"
         android:onClick="openqr"
         android:text="Scan QR code"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/button_border_dashed_bg"
         android:onClick="onrecent"
         android:text="Recent Projects"
@@ -37,6 +37,7 @@
         android:text=""
         android:background="@drawable/ui_bg2"
         android:onClick="openUploadActivity"
+        android:visibility="invisible"
 
         />
 
@@ -54,8 +55,8 @@
 
     <ImageView
         android:id="@+id/mascot"
-        android:layout_width="300dp"
-        android:layout_height="400dp"
+        android:layout_width="167dp"
+        android:layout_height="284dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="167dp"
         android:onClick="onMascotClick"
@@ -65,22 +66,24 @@
 
     <ImageView
         android:id="@+id/tapme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="148dp"
+        android:layout_height="129dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="186dp"
-        android:layout_marginTop="59dp"
+        android:layout_marginStart="201dp"
+        android:layout_marginTop="93dp"
         app:srcCompat="@drawable/mm_tapme" />
 
     <ImageView
         android:id="@+id/bubble"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="186dp"
-        android:layout_marginTop="59dp"
-        app:srcCompat="@drawable/ic_mm_messagebox" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="25dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/mm_messagebox2" />
 
 </RelativeLayout>

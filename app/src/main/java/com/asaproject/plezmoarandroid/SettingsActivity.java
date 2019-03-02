@@ -46,4 +46,8 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(i);
 
     }
+
+    public void onBackClicktwo(View view) {
+        super.onBackPressed();
+    }
 }
