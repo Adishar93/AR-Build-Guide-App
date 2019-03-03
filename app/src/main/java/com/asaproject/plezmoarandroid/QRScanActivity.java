@@ -41,7 +41,7 @@ public class QRScanActivity extends AppCompatActivity {
     private CameraSource cameraSource;
     private static final int REQUEST_CAMERA_PERMISSION = 201;
     SharedPreferences settings;
-
+    ImageView mascot;
     StorageReference storageRef ;
     StorageReference islandRef ;
     boolean activityLaunched=false;
@@ -55,7 +55,7 @@ public class QRScanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_barcode);
         settings = getSharedPreferences("ScannedProjects", MODE_PRIVATE);
-
+        mascot=(ImageView) findViewById(R.id.mascotQr);
         initViews();
     }
     public void onMascotClickQr(View v){
@@ -72,12 +72,24 @@ public class QRScanActivity extends AppCompatActivity {
         }
     }
 
+    public void onMascotClickQr(View v){
+        pl.droidsonroids.gif.GifImageView gif =findViewById(R.id.gif);
+        ImageView bubble = findViewById(R.id.bubble);
+        int i=gif.getVisibility();
+        if(i==4) {
+            gif.setVisibility(ImageView.VISIBLE);
+            bubble.setVisibility(ImageView.VISIBLE);
+        }
+        else {
+            gif.setVisibility(ImageView.INVISIBLE);
+            bubble.setVisibility(ImageView.INVISIBLE);
+        }
+        }
+
     private void initViews() {
         txtBarcodeValue = findViewById(R.id.txtBarcodeValue);
         surfaceView = findViewById(R.id.surfaceView);
-
-
-
+        surfaceView.setZOrderMediaOverlay(true);
 
     }
 
@@ -145,10 +157,8 @@ public class QRScanActivity extends AppCompatActivity {
                                 intentData = barcodes.valueAt(0).email.address;
                                 txtBarcodeValue.setText(intentData);
                                 isData = true;
-
-                            } else {
-
-
+                            }
+                            else {
                                 intentData = barcodes.valueAt(0).displayValue;
                                 txtBarcodeValue.setText(intentData);
 
