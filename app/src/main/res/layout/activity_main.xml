@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="160dp"
+        android:layout_marginBottom="180dp"
         android:background="@drawable/button_border_dashed_bg"
         android:onClick="openqr"
-        android:text="Scan QR code"
+        android:text="Start Building Model"
         android:textSize="18sp"
         android:visibility="visible" />
 
@@ -25,10 +25,23 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/button_border_dashed_bg"
         android:onClick="onrecent"
         android:text="Recent Projects"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/tutorial"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/button_border_dashed_bg"
+        android:onClick="ontutorial"
+        android:text="Tutorials"
         android:textSize="18sp" />
 
     <Button

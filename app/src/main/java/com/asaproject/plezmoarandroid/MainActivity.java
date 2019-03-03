@@ -32,10 +32,12 @@ public class MainActivity extends AppCompatActivity {
         ImageView mascot= (ImageView) findViewById(R.id.mascot);
         Button recent_btn = (Button) findViewById(R.id.recent);
         Button scanqr_btn = (Button) findViewById(R.id.qrcode);
+        Button tut_btn = (Button) findViewById(R.id.tutorial);
 
         Typeface typeface = Typeface.createFromAsset(getAssets(),"font/orange_juice2.ttf");
         recent_btn.setTypeface(typeface);
         scanqr_btn.setTypeface(typeface);
+        tut_btn.setTypeface(typeface);
     }
 
     public void onrecent(View view) {
@@ -104,5 +106,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+ public void ontutorial(View view) {
 
+        startActivity(new Intent(this, CardMainActivity.class));
+    }
 }
