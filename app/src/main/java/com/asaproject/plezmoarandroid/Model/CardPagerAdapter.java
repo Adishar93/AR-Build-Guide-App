@@ -12,6 +12,8 @@ import com.asaproject.plezmoarandroid.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
     private List<CardView> mViews;
@@ -73,6 +75,8 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     private void bind(CardItem item, View view) {
         TextView titleTextView = (TextView) view.findViewById(R.id.titleTextView);
         TextView contentTextView = (TextView) view.findViewById(R.id.contentTextView);
+        //GifImageView gif =(GifImageView)view.findViewById(R.id.gif);
+        //gif.setImageResource(item.getmGif());
         titleTextView.setText(item.getTitle());
         contentTextView.setText(item.getText());
     }
