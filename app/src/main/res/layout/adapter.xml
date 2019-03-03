@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    android:background="@drawable/ui_bg2">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -23,6 +24,7 @@
                 android:id="@+id/titleTextView"
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="wrap_content"
+                android:fontFamily="@font/roboto_regular"
                 android:layout_height="wrap_content" />
 
             <TextView
@@ -30,24 +32,26 @@
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
                 android:layout_marginTop="24dp" />
 
             <Button
                 android:id="@+id/exit_btn"
-                android:layout_width="match_parent"
+                android:layout_width="147dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:background="@drawable/button_border_dashed_bg"
+                android:fontFamily="@font/orange_juice2"
                 android:onClick="onBackClickcards"
-                android:text="Exit" />
+                android:text="OK"
+                android:textSize="22sp" />
         </LinearLayout>
 
         <pl.droidsonroids.gif.GifImageView
             android:layout_width="wrap_content"
             android:layout_height="233dp"
             android:layout_gravity="top|end"
-            android:layout_marginTop="-5dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:padding="10dp"
             android:src="@drawable/qrcode" />
 
     </FrameLayout>

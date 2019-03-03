@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="765dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="19dp" />
 
     <TextView
         android:id="@+id/txtBarcodeValue"
@@ -25,16 +26,7 @@
         android:textColor="@android:color/white"
         android:textSize="20sp" />
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/gif"
-        android:layout_width="275dp"
-        android:layout_height="225dp"
-        android:layout_above="@+id/bubble"
-        android:layout_centerHorizontal="true"
-        android:padding="10dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/qrcode"
-        android:visibility="invisible" />
+
 
     <ImageView
         android:id="@+id/mascotQr"
@@ -52,8 +44,22 @@
         android:layout_height="150dp"
         android:layout_alignEnd="@+id/surfaceView"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="19dp"
-        android:visibility="invisible"
-        app:srcCompat="@drawable/mm_messagebox2" />
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="187dp"
+        android:src="@drawable/bubblebox"
+        android:visibility="visible" />
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gif"
+        android:layout_width="275dp"
+        android:layout_height="225dp"
+        android:layout_above="@+id/bubble"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="-119dp"
+        android:padding="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/qrcode"
+        android:visibility="invisible" />
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package com.asaproject.plezmoarandroid;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import com.asaproject.plezmoarandroid.Model.CardFragmentPagerAdapter;
 import com.asaproject.plezmoarandroid.Model.CardItem;
@@ -26,6 +28,7 @@ public class CardMainActivity extends AppCompatActivity implements View.OnClickL
     private CardFragmentPagerAdapter mFragmentCardAdapter;
     private ShadowTransformer mFragmentCardShadowTransformer;
 
+    TextView t1,t2;
     private boolean mShowingFragments = false;
 
     @Override
@@ -33,12 +36,18 @@ public class CardMainActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_main);
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
-
-        mButton.setOnClickListener(CardMainActivity.this);
+//        t1=findViewById(R.id.tutorial_title);
+//        t2=findViewById(R.id.tutorial_desc);
+//        Typeface typeface = Typeface.createFromAsset(getAssets(),"font/orange_juice2.ttf");
+//        Typeface typeface2 = Typeface.createFromAsset(getAssets(),"font/roboto_regular.ttf");
+//        t1.setTypeface(typeface2);
+//        t2.setTypeface(typeface2);
+//        mButton.setTypeface(typeface);
+        //mButton.setOnClickListener(this);
 
         mCardAdapter = new CardPagerAdapter();
-        mCardAdapter.addCardItem(new CardItem("Scan QR CODE","Here you can scan QR CODE" ));
-        mCardAdapter.addCardItem(new CardItem("ASSEMBLE","ASSEMBLY INSTRUCTIONS" ));
+        mCardAdapter.addCardItem(new CardItem("Scan QR CODE","Here you can scan QR CODE" ,R.drawable.qrcode));
+        mCardAdapter.addCardItem(new CardItem("ASSEMBLE","ASSEMBLY INSTRUCTIONS" ,R.drawable.assemble1));
         mFragmentCardAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(),
                 dpToPixels(2, this));
 
@@ -65,6 +74,12 @@ public class CardMainActivity extends AppCompatActivity implements View.OnClickL
         mShowingFragments = !mShowingFragments;
     }
 
+    public void onBackClickCards(View v)
+    {
+        super.onBackPressed();
+
+
+    }
     public static float dpToPixels(int dp, Context context) {
         return dp * (context.getResources().getDisplayMetrics().density);
     }

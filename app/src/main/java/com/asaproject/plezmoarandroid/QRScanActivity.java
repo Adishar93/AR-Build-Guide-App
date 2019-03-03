@@ -64,27 +64,15 @@ public class QRScanActivity extends AppCompatActivity {
         int i=gif.getVisibility();
         if(i==4) {
             gif.setVisibility(ImageView.VISIBLE);
-            bubble.setVisibility(ImageView.VISIBLE);
+            //bubble.setVisibility(ImageView.VISIBLE);
         }
         else {
             gif.setVisibility(ImageView.INVISIBLE);
-            bubble.setVisibility(ImageView.INVISIBLE);
+           // bubble.setVisibility(ImageView.INVISIBLE);
         }
     }
 
-    public void onMascotClickQr(View v){
-        pl.droidsonroids.gif.GifImageView gif =findViewById(R.id.gif);
-        ImageView bubble = findViewById(R.id.bubble);
-        int i=gif.getVisibility();
-        if(i==4) {
-            gif.setVisibility(ImageView.VISIBLE);
-            bubble.setVisibility(ImageView.VISIBLE);
-        }
-        else {
-            gif.setVisibility(ImageView.INVISIBLE);
-            bubble.setVisibility(ImageView.INVISIBLE);
-        }
-        }
+
 
     private void initViews() {
         txtBarcodeValue = findViewById(R.id.txtBarcodeValue);

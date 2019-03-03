@@ -19,32 +19,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CardMainActivity"></activity>
-        <activity android:name=".InfoActivity" />
-        <activity android:name=".RecentProjectsActivity" />
-        <activity android:name=".UploadProject" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".CardMainActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".InfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".RecentProjectsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".UploadProject" android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity">
+        <activity android:name=".SettingsActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name=".SettingsActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".QRScanActivity">
+        <activity android:name=".QRScanActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name=".ScannedBarcodeActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Rating">
+        <activity android:name=".Rating" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name=".Rating" />
 

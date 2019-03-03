@@ -18,8 +18,8 @@ public class Rating extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rating);
-        addListenerOnButtonClick();
         submit=(Button)findViewById(R.id.feedback_submit_button);
+
         t=(TextView) findViewById(R.id.rating);
         t1=(TextView) findViewById(R.id.text);
         Typeface typeface = Typeface.createFromAsset(getAssets(),"font/orange_juice2.ttf");
@@ -29,15 +29,8 @@ public class Rating extends AppCompatActivity {
         t1.setTypeface(typeface2);
 
     }
-    public void addListenerOnButtonClick(){
-        ratingbar=(RatingBar)findViewById(R.id.ratingBar);
-
-
-        //Performing action on Button Click
-        submit.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View arg0) {
+            public void onSubmitClicked(View arg0) {
+                ratingbar=(RatingBar)findViewById(R.id.ratingBar);
                 float r=ratingbar.getRating();
 
                 if(r<2){
@@ -52,7 +45,5 @@ public class Rating extends AppCompatActivity {
                 else if(r>4){
                     t.setText("Rating : "+r+ "\nWow! We'll keep up the good work!");
                 }
-            }
-        });
     }
 }

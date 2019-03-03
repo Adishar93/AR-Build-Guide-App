@@ -13,9 +13,8 @@
         android:layout_gravity="top"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:orientation="vertical">
-
-
+        android:orientation="vertical"
+        android:background="@drawable/ui_bg2">
     </LinearLayout>
 
     <android.support.v4.view.ViewPager

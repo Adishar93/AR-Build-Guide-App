@@ -25,16 +25,30 @@
             android:orientation="vertical"
             android:padding="24dp">
 
+
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="wrap_content"
+                android:layout_height="371dp"
+                android:layout_gravity="top|start"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="-5dp"
+                android:src="@drawable/qrcode" />
+
             <TextView
+                android:id="@+id/tutorial_title"
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="wrap_content"
+                android:fontFamily="@font/roboto_regular"
                 android:layout_height="wrap_content"
                 android:text="Card title" />
 
             <TextView
+                android:id="@+id/tutorial_desc"
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
                 android:layout_marginTop="24dp"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Etiam eget ligula eu lectus lobortis condimentum." />
 
@@ -42,21 +56,19 @@
             <Button
                 android:id="@+id/exit_btn2"
                 style="@style/ButtonStyle"
-                android:layout_width="match_parent"
+                android:layout_width="147dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Exit"
-                android:onClick="onExitClick"/>
+                android:background="@drawable/button_border_dashed_bg"
+                android:onClick="onExitClick"
+                android:fontFamily="@font/orange_juice2"
+                android:text="OK"
+                android:textColor="#000000"
+                android:textSize="22sp" />
+
         </LinearLayout>
 
-        <pl.droidsonroids.gif.GifImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|start"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="-5dp"
-            android:src="@drawable/qrcode" />
+
 
     </FrameLayout>
 

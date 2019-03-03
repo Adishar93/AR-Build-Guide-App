@@ -1,15 +1,18 @@
 package com.asaproject.plezmoarandroid.Model;
 
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class CardItem {
 
     private String mTextResource;
     private String mTitleResource;
-    private int mGif;
+    int mGif;
 
-    public CardItem(String title, String text) {
+    public CardItem(String title, String text,int  gif) {
         mTitleResource = title;
         mTextResource = text;
+        mGif=gif;
     }
 
     public String
@@ -21,6 +24,7 @@ public class CardItem {
         return mTitleResource;
     }
 
-
-
+    public int getmGif() {
+        return mGif;
+    }
 }

@@ -70,9 +70,9 @@
         android:id="@+id/mascot"
         android:layout_width="167dp"
         android:layout_height="284dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="167dp"
+        android:layout_marginTop="200dp"
         android:onClick="onMascotClick"
+        android:layout_centerHorizontal="true"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/digital_assistan" />
 
@@ -83,20 +83,21 @@
         android:layout_height="129dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="201dp"
-        android:layout_marginTop="93dp"
+        android:layout_marginStart="209dp"
+        android:layout_marginTop="123dp"
+        android:onClick="onMascotClick"
         app:srcCompat="@drawable/mm_tapme" />
 
     <ImageView
         android:id="@+id/bubble"
-        android:layout_width="500dp"
-        android:layout_height="500dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="211dp"
+        android:layout_marginTop="70dp"
         android:visibility="invisible"
-        app:srcCompat="@drawable/mm_messagebox2" />
+        app:srcCompat="@drawable/mm_messagebox3" />
 
 </RelativeLayout>

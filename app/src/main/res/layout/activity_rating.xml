@@ -40,6 +40,7 @@
         android:layout_below="@+id/ratingBar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:onClick="onSubmitClicked"
         android:background="@drawable/button_border_dashed_bg"
         android:text="submit"
         android:textSize="22sp" />
@@ -48,7 +49,7 @@
         android:id="@+id/rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/feedback_submit_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:textColor="#000"
