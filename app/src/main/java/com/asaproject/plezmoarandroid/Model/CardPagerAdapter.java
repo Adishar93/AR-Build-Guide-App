@@ -1,12 +1,17 @@
 package com.asaproject.plezmoarandroid.Model;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.asaproject.plezmoarandroid.MainActivity;
 import com.asaproject.plezmoarandroid.R;
 
 import java.util.ArrayList;
@@ -19,6 +24,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     private List<CardView> mViews;
     private List<CardItem> mData;
     private float mBaseElevation;
+
 
     public CardPagerAdapter() {
         mData = new ArrayList<>();
@@ -57,13 +63,17 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         bind(mData.get(position), view);
         CardView cardView = (CardView) view.findViewById(R.id.cardView);
 
+
+
         if (mBaseElevation == 0) {
             mBaseElevation = cardView.getCardElevation();
         }
 
         cardView.setMaxCardElevation(mBaseElevation * MAX_ELEVATION_FACTOR);
         mViews.set(position, cardView);
+
         return view;
+
     }
 
     @Override
@@ -75,8 +85,8 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     private void bind(CardItem item, View view) {
         TextView titleTextView = (TextView) view.findViewById(R.id.titleTextView);
         TextView contentTextView = (TextView) view.findViewById(R.id.contentTextView);
-        //GifImageView gif =(GifImageView)view.findViewById(R.id.gif);
-        //gif.setImageResource(item.getmGif());
+        GifImageView gif =(GifImageView)view.findViewById(R.id.gif);
+        gif.setImageResource(item.getmGif());
         titleTextView.setText(item.getTitle());
         contentTextView.setText(item.getText());
     }

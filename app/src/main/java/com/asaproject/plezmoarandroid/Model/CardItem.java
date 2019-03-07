@@ -15,8 +15,7 @@ public class CardItem {
         mGif=gif;
     }
 
-    public String
-    getText() {
+    public String getText() {
         return mTextResource;
     }
 

@@ -68,7 +68,7 @@ public class QRScanActivity extends AppCompatActivity {
         }
         else {
             gif.setVisibility(ImageView.INVISIBLE);
-           // bubble.setVisibility(ImageView.INVISIBLE);
+           // bubble.setVisibility(ImageView.INVISIBLE) ;
         }
     }
 
@@ -159,55 +159,54 @@ public class QRScanActivity extends AppCompatActivity {
                                     editor.putString(index.toString(), intentData);
                                     editor.apply();
                                     //Launch the info activity for that particular id project
-                                    Intent s = new Intent(getApplicationContext(), InfoActivity.class);
-                                    s.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    s.putExtra("ModelId", intentData);
+                                    if(intentData!= null) {
+                                        Intent s = new Intent(getApplicationContext(), InfoActivity.class);
+                                        s.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        s.putExtra("ModelId", intentData);
 
-                                    ///////////mera code
-                                    final FirebaseStorage storage = FirebaseStorage.getInstance();
+                                        ///////////mera code
+                                        final FirebaseStorage storage = FirebaseStorage.getInstance();
 
 
-                                    storageRef = storage.getReference(intentData);
-                                    islandRef = storageRef.child("ARData");
-                                   // "Model" +intentData.toString()
-                                    File rootpath = new File(Environment.getExternalStorageDirectory(), "Android/data/com.asaproject.PlezmoAndroidApp");
-                                    if (!rootpath.exists()) {
-                                        rootpath.mkdirs();
-                                    }
-                                    File subroot = new File(Environment.getExternalStorageDirectory(),"Android/data/com.asaproject.PlezmoAndroidApp/resources/Model" +intentData.toString());
-                                    if (!subroot.exists()) {
-                                        subroot.mkdirs();
-                                    }
+                                        storageRef = storage.getReference(intentData);
+                                        islandRef = storageRef.child("ARData");
+                                        // "Model" +intentData.toString()
+                                        File rootpath = new File(Environment.getExternalStorageDirectory(), "Android/data/com.asaproject.PlezmoAndroidApp");
+                                        if (!rootpath.exists()) {
+                                            rootpath.mkdirs();
+                                        }
+                                        File subroot = new File(Environment.getExternalStorageDirectory(), "Android/data/com.asaproject.PlezmoAndroidApp/resources/Model" + intentData.toString());
+                                        if (!subroot.exists()) {
+                                            subroot.mkdirs();
+                                        }
 
-                                     File localFile = new File(subroot, "modelproject" +intentData.toString() + ".fbh" );
-                                    if(localFile.exists())
-                                    {
+                                        File localFile = new File(subroot, "modelproject" + intentData.toString() + ".fbh");
+                                        if (localFile.exists()) {
 
-                                        System.out.println("Halwa khaya");
-
-                                    }
-
-                                    islandRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                                        @Override
-                                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                                            x[0]++;
-
+                                            System.out.println("Halwa khaya");
 
                                         }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                            System.out.println("Halwa ho gya ye to!");
-                                        }
-                                    });
+
+                                        islandRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                            @Override
+                                            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                                x[0]++;
 
 
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception exception) {
+                                                System.out.println("Halwa ho gya ye to!");
+                                            }
+                                        });
 
 
 ///////////////////////end of mera code
-                                    startActivity(s);
-                                    finish();
-                                    activityLaunched=true;
+                                        startActivity(s);
+                                        finish();
+                                        activityLaunched = true;
+                                    }
 
                                 }
 
@@ -218,6 +217,7 @@ public class QRScanActivity extends AppCompatActivity {
                     });
 
                 }
+
             }
         });
     }

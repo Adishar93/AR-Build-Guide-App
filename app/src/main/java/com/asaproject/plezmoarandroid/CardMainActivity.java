@@ -1,6 +1,7 @@
 package com.asaproject.plezmoarandroid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -74,12 +75,6 @@ public class CardMainActivity extends AppCompatActivity implements View.OnClickL
         mShowingFragments = !mShowingFragments;
     }
 
-    public void onBackClickCards(View v)
-    {
-        super.onBackPressed();
-
-
-    }
     public static float dpToPixels(int dp, Context context) {
         return dp * (context.getResources().getDisplayMetrics().density);
     }
@@ -89,4 +84,17 @@ public class CardMainActivity extends AppCompatActivity implements View.OnClickL
         mCardShadowTransformer.enableScaling(b);
         mFragmentCardShadowTransformer.enableScaling(b);
     }
-}
+
+            public void onExitClick(View view) {
+        Intent i2 = new Intent(this,MainActivity.class);
+        startActivity(i2);
+            }
+
+            public void onBackClickCards(View v)
+            {
+                Intent i = new Intent(this,MainActivity.class);
+                startActivity(i);
+
+            }
+
+        }

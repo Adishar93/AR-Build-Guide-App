@@ -36,6 +36,9 @@ public class CardFragmentPagerAdapter extends FragmentStatePagerAdapter implemen
 
     @Override
     public int getCount() {
+
+
+
         return mFragments.size();
     }
 
@@ -50,6 +53,7 @@ public class CardFragmentPagerAdapter extends FragmentStatePagerAdapter implemen
         mFragments.set(position, (CardFragment) fragment);
         return fragment;
     }
+
 
     public void addCardFragment(CardFragment fragment) {
         mFragments.add(fragment);

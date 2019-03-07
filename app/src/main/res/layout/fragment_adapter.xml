@@ -27,6 +27,7 @@
 
 
             <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/tut_gif"
                 android:layout_width="wrap_content"
                 android:layout_height="371dp"
                 android:layout_gravity="top|start"
@@ -53,18 +54,6 @@
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Etiam eget ligula eu lectus lobortis condimentum." />
 
 
-            <Button
-                android:id="@+id/exit_btn2"
-                style="@style/ButtonStyle"
-                android:layout_width="147dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/button_border_dashed_bg"
-                android:onClick="onExitClick"
-                android:fontFamily="@font/orange_juice2"
-                android:text="OK"
-                android:textColor="#000000"
-                android:textSize="22sp" />
 
         </LinearLayout>
 
