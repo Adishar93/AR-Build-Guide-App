@@ -19,12 +19,14 @@ public class UploadProject extends AppCompatActivity {
 
 
     private static final int PICK_IMAGE=1;
-    private static final int PICK_FILE=2;
+    private static final int PICK_FILE1=2;
+    private static final int PICK_FILE2=3;
     ImageView mainImage;
     EditText name;
     EditText info;
     Intent imageIntent;
-    Intent arDataIntent;
+    Intent arDataIntent1;
+    Intent arDataIntent2;
 
 
 
@@ -47,12 +49,20 @@ public class UploadProject extends AppCompatActivity {
 
     }
 
-    public void openFileExplorer(View v)
+    public void openFileExplorer1(View v)
     {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
-        startActivityForResult(intent, PICK_FILE);
+        startActivityForResult(intent, PICK_FILE1);
+    }
+
+    public void openFileExplorer2(View v)
+    {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        startActivityForResult(intent, PICK_FILE2);
     }
 
     public void callUploadData(View v)
@@ -63,7 +73,7 @@ public class UploadProject extends AppCompatActivity {
         modelPartsList.add(new ModelParts("22","Part1","www.halwa.com"));
         modelPartsList.add(new ModelParts("34","Part2","www.halwawapasse.com"));
 
-        UploadProjectDataModel uploadProjectDataModel=new UploadProjectDataModel(this,new ModelKit(null,sname,sinfo,null,null,modelPartsList),imageIntent,arDataIntent);
+        UploadProjectDataModel uploadProjectDataModel=new UploadProjectDataModel(this,new ModelKit(null,sname,sinfo,null,null,null,modelPartsList),imageIntent,arDataIntent1,arDataIntent2);
         uploadProjectDataModel.uploadData();
     }
 
@@ -79,9 +89,13 @@ public class UploadProject extends AppCompatActivity {
 
 
         }
-        else if(resultCode==RESULT_OK&&requestCode == PICK_FILE)
+        else if(resultCode==RESULT_OK&&requestCode == PICK_FILE1)
         {
-            arDataIntent=data;
+            arDataIntent1=data;
+        }
+        else if(resultCode==RESULT_OK&&requestCode == PICK_FILE2)
+        {
+            arDataIntent2=data;
         }
     }
 

@@ -43,7 +43,8 @@ public class QRScanActivity extends AppCompatActivity {
     SharedPreferences settings;
     ImageView mascot;
     StorageReference storageRef ;
-    StorageReference islandRef ;
+    StorageReference islandRef1;
+    StorageReference islandRef2;
     boolean activityLaunched=false;
 
     String intentData = "";
@@ -58,21 +59,21 @@ public class QRScanActivity extends AppCompatActivity {
         mascot=(ImageView) findViewById(R.id.mascotQr);
         initViews();
     }
+
+
     public void onMascotClickQr(View v){
         pl.droidsonroids.gif.GifImageView gif =findViewById(R.id.gif);
         ImageView bubble = findViewById(R.id.bubble);
         int i=gif.getVisibility();
         if(i==4) {
             gif.setVisibility(ImageView.VISIBLE);
-            //bubble.setVisibility(ImageView.VISIBLE);
+
         }
         else {
             gif.setVisibility(ImageView.INVISIBLE);
-           // bubble.setVisibility(ImageView.INVISIBLE);
+
         }
     }
-
-
 
     private void initViews() {
         txtBarcodeValue = findViewById(R.id.txtBarcodeValue);
@@ -83,7 +84,7 @@ public class QRScanActivity extends AppCompatActivity {
 
     private void initialiseDetectorsAndSources() {
 
-        Toast.makeText(getApplicationContext(), "Barcode scanner started", Toast.LENGTH_SHORT).show();
+        // Toast.makeText(getApplicationContext(), "Barcode scanner started", Toast.LENGTH_SHORT).show();
 
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.ALL_FORMATS)
@@ -126,7 +127,7 @@ public class QRScanActivity extends AppCompatActivity {
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
             @Override
             public void release() {
-                Toast.makeText(getApplicationContext(), "To prevent memory leaks barcode scanner has been stopped", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "To prevent memory leaks barcode scanner has been stopped", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -168,26 +169,23 @@ public class QRScanActivity extends AppCompatActivity {
 
 
                                     storageRef = storage.getReference(intentData);
-                                    islandRef = storageRef.child("ARData");
-                                   // "Model" +intentData.toString()
+                                    islandRef1 = storageRef.child("ARModel");
+                                    islandRef2=storageRef.child("ARModel.manifest");
+                                    // "Model" +intentData.toString()
                                     File rootpath = new File(Environment.getExternalStorageDirectory(), "Android/data/com.asaproject.PlezmoAndroidApp");
                                     if (!rootpath.exists()) {
                                         rootpath.mkdirs();
                                     }
-                                    File subroot = new File(Environment.getExternalStorageDirectory(),"Android/data/com.asaproject.PlezmoAndroidApp/resources/Model" +intentData.toString());
+                                    File subroot = new File(Environment.getExternalStorageDirectory(),"Android/data/com.asaproject.PlezmoAndroidApp/resources/Model"+intentData.toString());
                                     if (!subroot.exists()) {
                                         subroot.mkdirs();
                                     }
 
-                                     File localFile = new File(subroot, "modelproject" +intentData.toString() + ".fbh" );
-                                    if(localFile.exists())
-                                    {
+                                    File localFile1 = new File(subroot, "ARModel" );
+                                    File localFile2=new File(subroot,"ARModel.manifest");
 
-                                        System.out.println("Halwa khaya");
 
-                                    }
-
-                                    islandRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                    islandRef1.getFile(localFile1).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                                         @Override
                                         public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                                             x[0]++;
@@ -200,6 +198,22 @@ public class QRScanActivity extends AppCompatActivity {
                                             System.out.println("Halwa ho gya ye to!");
                                         }
                                     });
+
+                                    islandRef2.getFile(localFile2).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                        @Override
+                                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                            x[0]++;
+
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception exception) {
+                                            System.out.println("Halwa ho gya ye to!");
+                                        }
+                                    });
+
+
 
 
 

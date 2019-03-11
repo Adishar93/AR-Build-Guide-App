@@ -1,26 +1,35 @@
 package com.asaproject.plezmoarandroid;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.asaproject.plezmoarandroid.entities.ModelKit;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseError;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+
+import java.io.File;
 import java.util.ArrayList;
 
 public class InfoActivity extends AppCompatActivity {
@@ -30,6 +39,10 @@ RecyclerView mRecyclerView;
     TextView desctv,desc_title_tv;
     TextView project_titltle_tv;
 DatabaseReference mDatabase;
+    StorageReference storageRef ;
+    StorageReference islandRef1;
+    StorageReference islandRef2;
+
 String model_key;
 String  model_title;
     RecentProjectAdapter adapter;
@@ -113,6 +126,75 @@ project_titltle_tv.setText(model_titleset);
         ////////////////////////////////////// End of mera parts ///////////////////////////////////////////////////
 
 
+    }
+
+    public void playUnity(View v)
+    {
+        final FirebaseStorage storage = FirebaseStorage.getInstance();
+
+
+        storageRef = storage.getReference(model_key);
+        islandRef1 = storageRef.child("ARModel");
+        islandRef2=storageRef.child("ARModel.manifest");
+        // "Model" +intentData.toString()
+        File rootpath = new File(Environment.getExternalStorageDirectory(),"Android/data/com.hamaricompany.Vufo/files/AssetBundles");
+        if (!rootpath.exists()) {
+            rootpath.mkdirs();
+        }
+        File subroot = new File(Environment.getExternalStorageDirectory(),"Android/data/com.hamaricompany.Vufo/files/AssetBundles");
+        if (!subroot.exists()) {
+            subroot.mkdirs();
+        }
+
+        File localFile1 = new File(subroot, "ARModel" );
+        File localFile2=new File(subroot,"ARModel.manifest");
+
+
+        islandRef1.getFile(localFile1).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+
+
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                System.out.println("Halwa ho gya ye to!");
+            }
+        });
+
+        islandRef2.getFile(localFile2).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+
+
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                System.out.println("Halwa ho gya ye to!");
+            }
+        });
+
+
+
+        //Intent intent = new Intent(this, UnityPlayerActivity.class);
+        //startActivity(intent);
+        PackageManager manager = getPackageManager();
+        try {
+            Intent i = manager.getLaunchIntentForPackage("com.hamaricompany.Vufo");
+            if (i == null) {
+
+                System.out.println("nothing happened");
+            }
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
+            startActivity(i);
+
+        } catch (ActivityNotFoundException e) {
+
+        }
     }
 
 //    @Override

@@ -8,7 +8,8 @@ public class ModelKit
     String name;
     String info;
     String linkMainImg;
-    String linkArData;
+    String linkArData1;
+    String linkArData2;
     ArrayList<ModelParts> parts;
 
 
@@ -17,21 +18,29 @@ public class ModelKit
 
     }
 
-    public ModelKit(String id, String name, String info, String linkMainImg,String linkArData ,ArrayList<ModelParts> parts) {
+    public ModelKit(String id, String name, String info, String linkMainImg,String linkArData1,String linkArData2 ,ArrayList<ModelParts> parts) {
         this.id = id;
         this.name = name;
         this.info = info;
         this.linkMainImg = linkMainImg;
         this.parts = parts;
-        this.linkArData=linkArData;
+        this.linkArData1=linkArData1;
     }
 
-    public String getLinkArData() {
-        return linkArData;
+    public String getLinkArData1() {
+        return linkArData1;
     }
 
-    public void setLinkArData(String linkArData) {
-        this.linkArData = linkArData;
+    public void setLinkArData1(String linkArData1) {
+        this.linkArData1 = linkArData1;
+    }
+
+    public String getLinkArData2() {
+        return linkArData2;
+    }
+
+    public void setLinkArData2(String linkArData2) {
+        this.linkArData2 = linkArData2;
     }
 
 

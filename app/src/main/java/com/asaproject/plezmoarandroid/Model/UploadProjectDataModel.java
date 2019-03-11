@@ -21,15 +21,17 @@ public class UploadProjectDataModel
     private StorageReference storageReference;
     DatabaseReference databaseReference;
     Intent imageIntent;
-    Intent arDataIntent;
+    Intent arDataIntent1;
+    Intent arDataIntent2;
     Context context;
 
-    public UploadProjectDataModel(Context context, ModelKit modelKit, Intent imageIntent,Intent arDataIntent)
+    public UploadProjectDataModel(Context context, ModelKit modelKit, Intent imageIntent,Intent arDataIntent1,Intent arDataIntent2)
     {
         this.modelKit=modelKit;
         this.imageIntent=imageIntent;
         this.context=context;
-        this.arDataIntent=arDataIntent;
+        this.arDataIntent1=arDataIntent1;
+        this.arDataIntent2=arDataIntent2;
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference();
     }
@@ -41,7 +43,8 @@ public class UploadProjectDataModel
         final StorageReference projectStorageRef = storageReference.child(randomName.toString());
 
         final StorageReference mainImageStorageRef = projectStorageRef.child("MainImage");
-        final StorageReference arDataStorageRef = projectStorageRef.child("ARData");
+        final StorageReference arDataStorageRef1 = projectStorageRef.child("ARModel");
+        final StorageReference arDataStorageRef2 = projectStorageRef.child("ARModel.manifest");
 
 
 //Uploading Main Image then AR DATA then database in order(nested onsuccess)
@@ -61,23 +64,23 @@ public class UploadProjectDataModel
                         Toast.makeText(context, "Upload IMAGE successful", Toast.LENGTH_SHORT).show();
 
 
-                        arDataStorageRef.putFile(arDataIntent.getData()).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        arDataStorageRef1.putFile(arDataIntent1.getData()).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                arDataStorageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                arDataStorageRef1.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
 
                                         //ei = new EventItems(title, desc,date, uri.toString(), "img" + randomName,FirebaseAuth.getInstance().getCurrentUser().getEmail());
                                         //String generatedProjectID = databaseReference.push().getKey();
-                                        modelKit.setLinkArData(uri.toString());
+                                        modelKit.setLinkArData1(uri.toString());
                                         modelKit.setId(randomName.toString());
 
                                         databaseReference.child(randomName.toString()).setValue(modelKit);
                                     }
                                 });
 
-                                Toast.makeText(context, "Upload AR DATA successful", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Upload AR Model successful", Toast.LENGTH_SHORT).show();
 
                             }
                         })
@@ -86,7 +89,37 @@ public class UploadProjectDataModel
                                     public void onFailure(@NonNull Exception exception) {
                                         //Nothing is uploaded only toast is displayed
                                         ;
-                                        Toast.makeText(context, "Sorry! Upload AR DATA unsuccessful", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "Sorry! Upload AR Model unsuccessful", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+                        arDataStorageRef2.putFile(arDataIntent2.getData()).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                arDataStorageRef2.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+
+                                        //ei = new EventItems(title, desc,date, uri.toString(), "img" + randomName,FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                                        //String generatedProjectID = databaseReference.push().getKey();
+                                        modelKit.setLinkArData2(uri.toString());
+                                        modelKit.setId(randomName.toString());
+
+                                        databaseReference.child(randomName.toString()).setValue(modelKit);
+                                    }
+                                });
+
+                                Toast.makeText(context, "Upload AR META successful", Toast.LENGTH_SHORT).show();
+
+                            }
+                        })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception exception) {
+                                        //Nothing is uploaded only toast is displayed
+                                        ;
+                                        Toast.makeText(context, "Sorry! Upload AR META unsuccessful", Toast.LENGTH_SHORT).show();
 
                                     }
                                 });
