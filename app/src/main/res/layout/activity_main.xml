@@ -64,7 +64,7 @@
         android:layout_marginTop="18dp"
         android:background="@android:color/transparent"
         android:onClick="openSettings"
-        app:srcCompat="@drawable/ic_mm_settings_icon" />
+        app:srcCompat="@drawable/ic_hamburg2" />
 
     <ImageView
         android:id="@+id/mascot"
@@ -91,7 +91,7 @@
     <ImageView
         android:id="@+id/bubble"
         android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_height="210dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"

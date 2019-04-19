@@ -47,8 +47,10 @@ public class CardMainActivity extends AppCompatActivity implements View.OnClickL
         //mButton.setOnClickListener(this);
 
         mCardAdapter = new CardPagerAdapter();
+        mCardAdapter.addCardItem(new CardItem("DIGITAL ASSISTANT","Tap on Plezmo man for any help" ,R.drawable.plezmoman));
         mCardAdapter.addCardItem(new CardItem("Scan QR CODE","Here you can scan QR CODE" ,R.drawable.qrcode));
         mCardAdapter.addCardItem(new CardItem("ASSEMBLE","ASSEMBLY INSTRUCTIONS" ,R.drawable.assemble1));
+
         mFragmentCardAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(),
                 dpToPixels(2, this));
 

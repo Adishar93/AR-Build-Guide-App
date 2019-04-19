@@ -17,6 +17,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -30,6 +31,19 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         setContentView(R.layout.activity_main);
         checkPermissionDialog();
+        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getBoolean("isFirstRun", true);
+
+        if (isFirstRun) {
+            //show sign up activity
+            startActivity(new Intent(MainActivity.this, CardMainActivity.class));
+            Toast.makeText(MainActivity.this, "welcome to tutorial section ", Toast.LENGTH_LONG)
+                    .show();
+        }
+
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putBoolean("isFirstRun", false).commit();
         ImageView settings= (ImageView) findViewById(R.id.settings);
         ImageView mascot= (ImageView) findViewById(R.id.mascot);
         Button recent_btn = (Button) findViewById(R.id.recent);
