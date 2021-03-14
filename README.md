@@ -1,4 +1,4 @@
-# ARModelAssemblyUI
+# ARAssemblyVisualizerBase
 User Interface and model data fetching (Firebase) code for the Augmented Reality Application aimed at helping with manual assembly of 
 products / machinery by projecting a virtual model on a flat surface 
 (like table or floor) with step by step assembly animations.
