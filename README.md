@@ -1,4 +1,4 @@
-# AR Assembly Visualizer Base (UI)
+# AR Build Guide App
 User Interface and data access (Firebase) code for the Augmented Reality Application aimed at helping with manual assembly of 
 products / machinery by projecting a virtual model on a flat surface 
 (like table or floor) with step by step assembly animations.
@@ -17,5 +17,5 @@ https://github.com/Adishar93/AR_AssemblyVisualizer_Base/assets/39119745/5366caf6
 
 
 Find the code for Augmented Reality implementation in the following repository:
-https://github.com/Adishar93/AR_AssemblyVisualizer
+https://github.com/Adishar93/AR-Build-Guide-Unity
 
